@@ -8,7 +8,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.BeforeAll;
 
+import java.util.Locale;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,6 +19,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 @ExtendWith(ResultAnalyzer.class)	
 class SqlDmlJoinsApplicationTests {
+
+	@BeforeAll
+	static void setup() {
+		Locale.setDefault(new Locale("tr", "TR"));
+	}
 
 	private KitapRepository kitapRepository;
 	private OgrenciRepository ogrenciRepository;
